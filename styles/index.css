@@ -1,0 +1,5 @@
+/* Use the same title fonts across theme layouts and scoped slide components. */
+.slidev-page h1,
+.slidev-layout h1 {
+  font-family: 'PT Serif', 'Songti SC', Georgia, serif !important;
+}
