@@ -413,14 +413,36 @@ class: h-full
 <PtcComparison />
 
 ---
-class: content-slide ptc-followup-slide
+layout: none
+class: h-full
 ---
+
+<PtcExtensionsSlide>
 
 # More on PTC
 
-- Persistent PTC?
-- [Recursive Language Models](https://arxiv.org/abs/2512.24601)（RLM）？
-    ![1789697889578](./assets/1789697889578.png){.block.h-90}
+<div class="ptc-extensions">
+<section class="ptc-extension">
+
+## Persistent PTC?
+
+<div class="extension-visual">
+<PersistentPtcState />
+</div>
+
+</section>
+<section class="ptc-extension">
+
+## [Recursive Language Models (RLM)?](https://arxiv.org/abs/2512.24601)
+
+<div class="extension-visual">
+<RlmOverview />
+</div>
+
+</section>
+</div>
+
+</PtcExtensionsSlide>
 
 ---
 layout: none
@@ -487,10 +509,9 @@ class: content-slide
 
 # Vibe Coding 时代的开源
 
-
 - 2026 年 2 月，GitHub 支持禁用仓库 PR 功能
 
-- 开源作为一种合作形式不可能消失
+- 开源作为一种合作方式不可能消失
 
 - 新的形态感觉已经呼之欲出了……
 
@@ -552,21 +573,21 @@ class: h-full
 class: content-slide
 ---
 
-# 国内模型厂（Opinions are my own）
+# 模型厂（Opinions are my own）
 
-- Kimi 首先是一家创业公司，而 DeepSeek 首先是一个实验室
+- Kimi 首先是一家创业公司，DeepSeek 首先是一个实验室
 
   - 理想不分高低……
 
   - 鲸鱼娘作用巨大
 
-  - 你可以在 DeepSeek Harness 的楼层看到 Kimi Code 的工位
+  - 你可以在 DeepSeek Harness 的电梯间看到 Kimi Code 的工位
 
 - 几乎无限的 token 和容器资源
 
   - 当然，大量的 GPU
 
-
+- 都在招人!
 
 ---
 layout: none
