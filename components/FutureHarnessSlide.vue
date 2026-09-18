@@ -11,6 +11,7 @@
   --future-heading: #526f7a;
   --future-accent: #2f7890;
   --future-muted: #69777e;
+  position: relative;
   width: 100%;
   height: 100%;
   padding-bottom: 40px;
@@ -68,6 +69,16 @@
 .future-harness-slide :deep(strong) { font-weight: 600; }
 .future-harness-slide :deep(.api-questions p) { white-space: nowrap; }
 .future-harness-slide :deep(.infra-open-question) { color: var(--future-muted); }
+.future-harness-slide :deep(.future-addendum) {
+  position: absolute;
+  right: var(--slide-content-x);
+  bottom: 50px;
+  margin: 0;
+  color: var(--future-muted);
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: right;
+}
 
 :global(.dark) .future-harness-slide {
   --future-paper: #161e24;

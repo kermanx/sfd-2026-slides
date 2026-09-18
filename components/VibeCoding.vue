@@ -2,37 +2,30 @@
   <section class="vibe-coding content-slide" aria-labelledby="vibe-coding-title">
     <header class="vibe-heading">
       <h1 id="vibe-coding-title">Vibe Coding</h1>
-      <span class="human-in-loop">Human in the Loop</span>
     </header>
 
     <div class="vibe-introduction">
-      <p>激进一点：不需要手写任何一段逻辑</p>
-      <p>现阶段人的作用是 <strong>code review</strong> 和 <strong>纠偏</strong>。这要求：</p>
+      <p>激进一点：不手写任何一段逻辑</p>
+      <p>现阶段人的作用：<strong>code review</strong> 与 <strong>纠偏</strong></p>
     </div>
 
-    <ol class="review-requirements">
-      <li class="architecture-requirement">
-        <div class="requirement-heading">
-          <span class="requirement-number" aria-hidden="true">01</span>
-        </div>
-        <p>对整个架构，尤其是<strong>预期中的架构</strong>非常清楚和敏感，能够迅速发现 AI 代码中设计不良的部分；</p>
-      </li>
-      <li class="capability-requirement">
-        <div class="requirement-heading">
-          <span class="requirement-number" aria-hidden="true">02</span>
-        </div>
-        <p>理解<strong>模型的能力边界</strong>，知道哪些任务模型几乎一定不会做错，不必再花时间逐项检查。</p>
-      </li>
-    </ol>
+    <div class="review-requirements">
+      <section class="architecture-requirement">
+        <h2>预期架构</h2>
+        <p>实现有没有偏离设计？</p>
+      </section>
+      <section class="capability-requirement">
+        <h2>模型边界</h2>
+        <p>哪些部分还需要 review？</p>
+      </section>
+    </div>
 
-    <p class="changing-judgment">这些判断会随着模型的进化而不断改变，半年就可能出现较大变化。</p>
+    <p class="changing-judgment">模型的能力边界，半年就可能大变。</p>
 
-    <ul class="automation-questions">
-      <li>离全自动化有多远？</li>
-      <ul>
-        <li>我们的 review 能力正在被蒸馏</li>
-      </ul>
-    </ul>
+    <div class="automation-questions">
+      <p>离全自动化有多远？</p>
+      <p>我们的 review 能力正在被蒸馏</p>
+    </div>
   </section>
 </template>
 
@@ -51,28 +44,22 @@
   font-family: 'Inter', 'Avenir Next', 'PingFang SC', 'Microsoft YaHei', sans-serif;
 }
 
-.vibe-heading { display: flex; align-items: center; justify-content: space-between; }
-.human-in-loop { display: inline-flex; align-items: center; gap: 9px; padding: 6px 12px; border: 1px solid var(--vibe-rule); border-radius: 5px; color: var(--vibe-green); font-size: 13px; line-height: 1.5; }
-.human-in-loop::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
-
 .vibe-introduction { margin-top: 23px; }
 .vibe-introduction p { margin: 0; font-size: 16px; line-height: 1.7; }
 .vibe-introduction p + p { margin-top: 6px; }
 .vibe-introduction strong { color: var(--vibe-green); font-weight: 600; }
 
-.review-requirements { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 24px 0 0; padding: 0; list-style: none; }
-.review-requirements li { margin: 0; padding: 19px 22px 20px; border-top: 2px solid var(--requirement-accent); background: var(--requirement-tint); }
+.review-requirements { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 24px 0 0; }
+.review-requirements > section { padding: 19px 22px 20px; border-top: 2px solid var(--requirement-accent); background: var(--requirement-tint); }
 .architecture-requirement { --requirement-accent: #5279a5; --requirement-tint: #edf2f8; }
 .capability-requirement { --requirement-accent: #398476; --requirement-tint: #eaf3ee; }
-.requirement-heading { display: flex; align-items: center; gap: 13px; }
-.requirement-number { color: var(--requirement-accent); font-family: 'SFMono-Regular', Consolas, monospace; font-size: 23px; line-height: 1.4; font-weight: 400; }
-.review-requirements p { margin: 13px 0 0; font-size: 15px; line-height: 1.85; }
-.review-requirements strong { color: var(--requirement-accent); font-weight: 600; }
+.review-requirements h2 { margin: 0; color: var(--requirement-accent); font-size: 22px; font-weight: 600; line-height: 1.4; }
+.review-requirements p { margin: 10px 0 0; font-size: 18px; line-height: 1.65; }
 
-.changing-judgment { margin: 19px 0 0; color: var(--vibe-muted); font-size: 14px; line-height: 1.7; }
-.changing-judgment strong { color: var(--vibe-text); font-weight: 500; }
-.automation-questions { margin: 25px 0 0; padding-left: 22px; list-style: disc; font-size: 16px; line-height: 1.7; }
-.automation-questions li { margin: 5px 0 0; padding: 0; }
+.changing-judgment { margin: 24px 0 0; color: var(--vibe-muted); font-size: 14px; line-height: 1.7; }
+.automation-questions { margin-top: 32px; font-size: 18px; line-height: 1.7; }
+.automation-questions p { margin: 0; }
+.automation-questions p + p { margin-top: 8px; }
 
 :global(.dark) .vibe-coding { --vibe-paper: #161e24; --vibe-text: #e0e8ed; --vibe-muted: #93a4b0; --vibe-rule: #35424c; --vibe-green: #83b6a9; }
 :global(.dark) .architecture-requirement { --requirement-accent: #8dadd2; --requirement-tint: #222f3e; }

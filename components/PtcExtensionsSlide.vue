@@ -38,6 +38,7 @@
 }
 .ptc-extensions-slide :deep(h2 a) { color: inherit; border-bottom: 0; }
 .ptc-extensions-slide :deep(.extension-visual) { margin-top: 26px; }
+.ptc-extensions-slide :deep(.rlm-visual) { margin-top: 14px; }
 
 :global(.dark) .ptc-extensions-slide {
   --extension-text: #e0e8ed;

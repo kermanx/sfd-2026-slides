@@ -54,7 +54,7 @@ print(len(<b>prs</b>))</pre>
 .second-model { top: 237px; }
 .persistent-model span { display: block; color: var(--extension-muted); font-size: 11px; line-height: 1.5; }
 .persistent-model strong { display: block; color: var(--extension-text); font-size: 16px; font-weight: 500; line-height: 1.6; }
-.persistent-runtime { position: absolute; top: 0; right: 0; left: 104px; border: 1px solid var(--extension-rule); border-radius: 5px; overflow: hidden; background: var(--extension-code); }
+.persistent-runtime { position: absolute; top: 0; left: 104px; width: 274px; border: 1px solid var(--extension-rule); border-radius: 5px; overflow: hidden; background: var(--extension-code); }
 .runtime-heading { height: 34px; display: flex; align-items: center; padding: 0 12px; border-bottom: 1px solid var(--extension-rule); color: var(--extension-green); font-size: 13px; }
 .execution-cell { padding: 12px; }
 .first-cell { height: 130px; }

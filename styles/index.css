@@ -41,3 +41,66 @@
 .slidev-layout.default.content-slide > h1 {
   margin-bottom: 24px;
 }
+
+.slidev-layout.model-company-slide {
+  --company-text: #27333b;
+  --company-detail: #68767e;
+  --company-marker: #93a49f;
+  font-family: 'Inter', 'Avenir Next', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+
+.model-company-slide > ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.model-company-slide > ul > li {
+  margin: 0;
+  padding: 0;
+  color: var(--company-text);
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.model-company-slide > ul > li + li {
+  margin-top: 30px;
+}
+
+.model-company-slide > ul > li > p {
+  margin: 0;
+  font-weight: 500;
+}
+
+.model-company-slide > ul > li > ul {
+  margin: 12px 0 0;
+  padding-left: 22px;
+  list-style: disc;
+  color: var(--company-detail);
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.model-company-slide > ul > li > ul > li {
+  margin: 0;
+  padding-left: 3px;
+}
+
+.model-company-slide > ul > li > ul > li + li {
+  margin-top: 7px;
+}
+
+.model-company-slide > ul > li > ul > li::marker {
+  color: var(--company-marker);
+  font-size: 0.75em;
+}
+
+.model-company-slide li p {
+  margin: 0;
+}
+
+.dark .model-company-slide {
+  --company-text: #e0e8ed;
+  --company-detail: #a4b2bb;
+  --company-marker: #83b6a9;
+}

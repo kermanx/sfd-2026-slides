@@ -273,7 +273,7 @@ class: h-full
 ## Prompt Engineering?
 
 - “你是……”
-- 骂模型还是夸模型？
+- 应该骂模型还是夸模型？
 - 通过伪造 dig 结果让模型相信用户并攻击网站
 
 </div>
@@ -436,7 +436,7 @@ class: h-full
 
 ## [Recursive Language Models (RLM)?](https://arxiv.org/abs/2512.24601)
 
-<div class="extension-visual">
+<div class="extension-visual rlm-visual">
 <RlmOverview />
 </div>
 
@@ -505,16 +505,26 @@ Harness 无法提升模型的能力上限
 </HarnessGoalsSlide>
 
 ---
-class: content-slide
+layout: none
+class: h-full
 ---
+
+<OpenSourceSlide>
 
 # Vibe Coding 时代的开源
 
-- 2026 年 2 月，GitHub 支持禁用仓库 PR 功能
+<div class="open-source-copy">
+<div class="open-source-group">
+<p>当实现一个不可维护的代码的成本极低</p>
+<p class="open-source-example">2026 年 2 月，GitHub 支持禁用仓库 PR 功能</p>
+</div>
+<div class="open-source-group">
+<p>开源作为一种<strong>合作方式</strong>不可能消失</p>
+<p>新的形态感觉已经呼之欲出了……</p>
+</div>
+</div>
 
-- 开源作为一种合作方式不可能消失
-
-- 新的形态感觉已经呼之欲出了……
+</OpenSourceSlide>
 
 ---
 layout: none
@@ -568,10 +578,12 @@ class: h-full
 </section>
 </div>
 
+<p class="future-addendum">当然，Memory，Proactive Agent，Continual learning</p>
+
 </FutureHarnessSlide>
 
 ---
-class: content-slide
+class: content-slide model-company-slide
 ---
 
 # 模型厂（Opinions are my own）
