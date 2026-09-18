@@ -37,7 +37,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build slides
-        run: pnpm run build --base /sfd-2026-slides/ --router-mode hash
+        run: pnpm run build --base /sfd-2026-slides/
 
       - uses: actions/upload-pages-artifact@v5
         with:
