@@ -1,11 +1,4 @@
-# Welcome to [Slidev](https://github.com/slidevjs/slidev)!
+# 2026 年 9 月的 (Coding) Agent
 
-To start the slide show:
-
-- `pnpm install`
-- `pnpm dev`
-- visit <http://localhost:3030>
-
-Edit the [slides.md](./slides.md) to see the changes.
-
-Learn more about Slidev at the [documentation](https://sli.dev/).
+- [软件自由日 2026](https://lug.ustc.edu.cn/news/2026/09/SFD-Preview/)
+- [幻灯片](https://kermanx.github.io/sfd-2026-slides/)
