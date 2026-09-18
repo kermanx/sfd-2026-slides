@@ -1,6 +1,7 @@
 ---
 # try also 'default' to start simple
 theme: seriph
+colorSchema: light
 addons:
   - slidev-addon-tldraw
 # some information about your slides (markdown enabled)

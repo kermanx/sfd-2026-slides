@@ -1,3 +1,7 @@
+<script setup>
+import './styles/index.css'
+</script>
+
 <template>
   <footer class="deck-footer" :class="{ 'on-black': String($frontmatter.class || '').split(/\s+/).includes('bg-black') }">
     <span>_Kerman · SFD 2026</span>
