@@ -5,12 +5,12 @@ const eras = [
   {
     id: 'static', generation: '前史', number: '00', title: '静态分析补全',
     color: '#70808e', tint: '#eaf0f3', action: '选择一个符号',
-    products: [{ name: 'DevCpp' }, { name: 'IntelliSense' }],
+    products: [{ name: 'Dev-C++' }, { name: 'IntelliSense' }],
   },
   {
     id: 'completion', generation: '第一代', number: '01', title: 'AI 代码补全',
     color: '#5279a5', tint: '#eaf1fa', action: '续写一段代码', year: '2018',
-    products: [{ name: 'TabNine' }, { name: 'GitHub Copilot' }],
+    products: [{ name: 'Tabnine' }, { name: 'GitHub Copilot' }],
   },
   {
     id: 'chat', generation: '第二代', number: '02', title: '对话式编程',
@@ -21,10 +21,10 @@ const eras = [
     id: 'agent', generation: '第三代', number: '03', title: 'Agentic Coding',
     color: '#398476', tint: '#e6f2ed', action: '自主执行任务',
     products: [
-      { date: '2024.3', name: 'Devin' },
+      { date: '2024.03', name: 'Devin' },
       { date: '2024.11', name: 'Cursor Agent' },
-      { date: '2025.2', name: 'Claude Code beta' },
-      { date: '2025.9', name: 'Kimi CLI' },
+      { date: '2025.02', name: 'Claude Code beta' },
+      { date: '2025.09', name: 'Kimi CLI' },
     ],
   },
   {
@@ -36,9 +36,9 @@ const eras = [
 </script>
 
 <template>
-  <section class="coding-overview" aria-labelledby="coding-overview-title">
+  <section class="coding-overview content-slide" aria-labelledby="coding-overview-title">
     <header class="overview-heading">
-      <h1 id="coding-overview-title">The History of Coding Agent</h1>
+      <h1 id="coding-overview-title">The History of Coding Agents</h1>
     </header>
 
     <div class="era-timeline">
@@ -79,21 +79,12 @@ const eras = [
   --overview-rule: #dde3e3;
   width: 100%;
   height: 100%;
-  padding: 34px 40px 36px;
+  padding-bottom: 36px;
   color: var(--overview-text);
   background: var(--overview-paper);
   font-family: 'Inter', 'Avenir Next', 'PingFang SC', 'Microsoft YaHei', sans-serif;
 }
 
-.overview-heading h1 {
-  margin: 0;
-  color: #526f7a;
-  font-family: 'PT Serif', Georgia, serif;
-  font-size: 34px;
-  font-weight: 500;
-  line-height: 1.25;
-  letter-spacing: -0.8px;
-}
 
 .era-timeline {
   display: grid;
@@ -212,9 +203,6 @@ const eras = [
   --overview-rule: #35424c;
 }
 
-:global(.dark) .overview-heading h1 {
-  color: #abc7ce;
-}
 
 :global(.dark) .era {
   --era-color: color-mix(in srgb, var(--era-tint) 40%, #86a6b7) !important;

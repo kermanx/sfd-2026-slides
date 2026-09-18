@@ -1,5 +1,47 @@
-/* Use the same title fonts across theme layouts and scoped slide components. */
+:root {
+  --slide-paper: #fcfcfa;
+  --slide-title-size: 32px;
+  --slide-title-line-height: 1.3;
+  --slide-title-color: #526f7a;
+  --slide-content-top: 34px;
+  --slide-content-x: 44px;
+}
+
+.dark {
+  --slide-paper: #161e24;
+  --slide-title-color: #abc7ce;
+}
+
+.slidev-layout.default {
+  background: var(--slide-paper);
+}
+
+/* Cover, Q&A, and interlude slides retain their display typography. */
 .slidev-page h1,
 .slidev-layout h1 {
   font-family: 'PT Serif', 'Songti SC', Georgia, serif !important;
+}
+
+/* Shared title origin for both Markdown and custom content slides. */
+.slidev-page .content-slide {
+  padding-top: var(--slide-content-top);
+  padding-right: var(--slide-content-x);
+  padding-left: var(--slide-content-x);
+}
+
+.slidev-page .content-slide h1 {
+  margin: 0;
+  color: var(--slide-title-color);
+  font-size: var(--slide-title-size);
+  font-weight: 500;
+  line-height: var(--slide-title-line-height);
+  letter-spacing: -0.5px;
+}
+
+.slidev-layout.default.content-slide > h1 {
+  margin-bottom: 24px;
+}
+
+.slidev-layout.default.ptc-followup-slide > h1 {
+  margin-bottom: 12px;
 }

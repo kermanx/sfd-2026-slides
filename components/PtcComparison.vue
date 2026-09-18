@@ -48,7 +48,7 @@ onScopeDispose(stop)
 </script>
 
 <template>
-  <section class="ptc-comparison-slide" :class="{ 'is-playing': playing }" aria-labelledby="ptc-title">
+  <section class="ptc-comparison-slide content-slide" :class="{ 'is-playing': playing }" aria-labelledby="ptc-title">
     <header class="ptc-top">
       <h1 id="ptc-title">Programmatic Tool Calling <span>(PTC)</span></h1>
       <div v-if="!staticView" class="ptc-controls" @click.stop @keydown.stop>
@@ -126,12 +126,11 @@ onScopeDispose(stop)
   --ptc-paper: #fcfcfa; --ptc-text: #27333b; --ptc-muted: #748088; --ptc-rule: #dde3e3;
   --ptc-blue: #5279a5; --ptc-green: #398476; --ptc-red: #b06c55; --ptc-code: #f3f6f5;
   --ptc-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
-  height: 100%; width: 100%; padding: 30px 38px 28px; background: var(--ptc-paper); color: var(--ptc-text);
+  height: 100%; width: 100%; padding-bottom: 28px; background: var(--ptc-paper); color: var(--ptc-text);
   font-family: 'Inter', 'Avenir Next', 'PingFang SC', 'Microsoft YaHei', sans-serif;
 }
 .ptc-top { display: flex; align-items: center; justify-content: space-between; gap: 14px; }
-.ptc-top h1 { margin: 0; color: #526f7a; font-family: 'PT Serif', 'Songti SC', Georgia, serif; font-size: 29px; font-weight: 500; line-height: 1.3; letter-spacing: -.55px; white-space: nowrap; }
-.ptc-top h1 span { font-size: 25px; }
+.ptc-top h1 { white-space: nowrap; }
 .ptc-controls { display: flex; align-items: center; gap: 6px; }
 .ptc-controls button { display: inline-flex; justify-content: center; align-items: center; gap: 4px; height: 27px; padding: 0 8px; border: 1px solid var(--ptc-rule); border-radius: 4px; color: var(--ptc-muted); background: transparent; font-size: 11px; cursor: pointer; white-space: nowrap; }
 .ptc-controls .ptc-play { color: var(--ptc-green); border-color: color-mix(in srgb, var(--ptc-green) 35%, var(--ptc-paper)); }
@@ -192,7 +191,6 @@ onScopeDispose(stop)
 @keyframes ptc-caret { 50% { opacity: .15; } }
 button:focus-visible { outline: 2px solid var(--ptc-green); outline-offset: 3px; }
 :global(.dark) .ptc-comparison-slide { --ptc-paper: #161e24; --ptc-text: #e0e8ed; --ptc-muted: #a6b6bf; --ptc-rule: #35424c; --ptc-blue: #8dadd2; --ptc-green: #83b6a9; --ptc-red: #d69a84; --ptc-code: #202c30; }
-:global(.dark) .ptc-top h1 { color: #abc7ce; }
 :global(.dark) .ptc-execution-box { border-color: var(--ptc-rule); }
 @media (prefers-reduced-motion: reduce) { .stream-caret { animation: none !important; } .ptc-message, .ptc-code-line, .ptc-check-row { transition: none; } }
 </style>

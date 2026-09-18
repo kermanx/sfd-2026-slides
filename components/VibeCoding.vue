@@ -1,5 +1,5 @@
 <template>
-  <section class="vibe-coding" aria-labelledby="vibe-coding-title">
+  <section class="vibe-coding content-slide" aria-labelledby="vibe-coding-title">
     <header class="vibe-heading">
       <h1 id="vibe-coding-title">Vibe Coding</h1>
       <span class="human-in-loop">Human in the Loop</span>
@@ -25,12 +25,12 @@
       </li>
     </ol>
 
-    <p class="changing-judgment">这些判断会随着模型的进化，而不断改变，半年就可能出现较大变化。</p>
+    <p class="changing-judgment">这些判断会随着模型的进化而不断改变，半年就可能出现较大变化。</p>
 
     <ul class="automation-questions">
       <li>离全自动化有多远？</li>
       <ul>
-        <li>我们的 review 能力正在被蒸馏中</li>
+        <li>我们的 review 能力正在被蒸馏</li>
       </ul>
     </ul>
   </section>
@@ -45,14 +45,13 @@
   --vibe-green: #398476;
   width: 100%;
   height: 100%;
-  padding: 34px 44px 34px;
+  padding-bottom: 34px;
   color: var(--vibe-text);
   background: var(--vibe-paper);
   font-family: 'Inter', 'Avenir Next', 'PingFang SC', 'Microsoft YaHei', sans-serif;
 }
 
 .vibe-heading { display: flex; align-items: center; justify-content: space-between; }
-.vibe-heading h1 { margin: 0; color: #526f7a; font-family: 'PT Serif', Georgia, serif; font-size: 34px; font-weight: 500; line-height: 1.3; letter-spacing: -0.5px; }
 .human-in-loop { display: inline-flex; align-items: center; gap: 9px; padding: 6px 12px; border: 1px solid var(--vibe-rule); border-radius: 5px; color: var(--vibe-green); font-size: 13px; line-height: 1.5; }
 .human-in-loop::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
 
@@ -78,5 +77,4 @@
 :global(.dark) .vibe-coding { --vibe-paper: #161e24; --vibe-text: #e0e8ed; --vibe-muted: #93a4b0; --vibe-rule: #35424c; --vibe-green: #83b6a9; }
 :global(.dark) .architecture-requirement { --requirement-accent: #8dadd2; --requirement-tint: #222f3e; }
 :global(.dark) .capability-requirement { --requirement-accent: #83b6a9; --requirement-tint: #20332f; }
-:global(.dark) .vibe-heading h1 { color: #abc7ce; }
 </style>

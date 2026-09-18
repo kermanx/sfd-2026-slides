@@ -3,13 +3,10 @@
 theme: seriph
 addons:
   - slidev-addon-tldraw
-# random image from a curated Unsplash collection by Anthony
-# like them? see https://unsplash.com/collections/94734566/slidev
-background: https://cover.sli.dev
 # some information about your slides (markdown enabled)
 title: 2026 年 9 月的 (Coding) Agent
-# apply UnoCSS classes to the current slide
-class: text-center
+layout: none
+class: h-full
 # https://sli.dev/features/drawing
 drawings:
   persist: false
@@ -21,26 +18,93 @@ comark: true
 duration: 30min
 ---
 
-# 2026 年 9 月的 (Coding) Agent
+<CoverSlide>
+<div class="cover-copy">
 
-USTCLUG · 软件自由日 2026
+# 2026 年 9 月的<br />(Coding) Agent
+
+软件自由日 2026
+
+</div>
+</CoverSlide>
 
 ---
 
-- “在这个大模型发展中的时期，时间的速度比以往快三到五倍。“
-- Coding Agent 发展的时间比想象中更短。
-- 有幸参与了 Kimi Code (TypeScript 版) 和 DeepSeek Harness 的开发。
+- “在这个大模型发展中的时期，时间的速度比以往快三到五倍。”
+  - （请回忆 DeepSeek-R1 的发布时间）
+- 有幸参与了 Kimi Code（TypeScript 版）和 DeepSeek Harness 的开发
 
 ![1789523194892](./assets/1789523194892.png)
 
 ---
+layout: none
+class: h-full
+title: Hardware, Infra, Model, Harness, Data
+---
 
-# Hardware, Infra, Model, Harness, Data
+<EcosystemSlide>
 
-<tldraw class="inset-0 w-full h-full" doc="tldraw/doc-RVQIyaP-hzRKQ6mBwfzxa.json"></tldraw>
+<div class="ecosystem-map">
+
+<EcosystemConnections />
+
+<div class="ecosystem-nodes">
+<div class="ecosystem-node">
+
+## Hardware
+
+- GPU
+- HBM
+- NVLink
+- InfiniBand
+
+</div>
+<div class="ecosystem-node">
+
+## Infra
+
+- 分布式训练
+- 推理引擎
+- 并行策略
+- 资源调度
+
+</div>
+<div class="ecosystem-node">
+
+## Model
+
+- Transformer
+- MoE
+- SFT
+- RL
+
+</div>
+<div class="ecosystem-node ecosystem-harness">
+
+## Harness
+
+- 上下文管理
+- 工具执行
+- Agent Loop
+- Subagent
+
+</div>
+</div>
+
+<div class="ecosystem-data">
+
+## Data
+
+预训练语料 · 指令数据 · 交互轨迹 · 偏好反馈
+
+</div>
+</div>
+
+</EcosystemSlide>
 
 ---
 layout: none
+class: h-full
 ---
 
 <CodingAgentOverview />
@@ -65,23 +129,15 @@ class: h-full
 
 <AgentHarnessSlide>
 
-# 2026 年 9 月的 Agent 和 Harness
-
 <p class="agent-formula">Model + Harness = Agent</p>
 
 <ReActLoop>
 
-## ReACT Loop
+## ReAct Loop
 
 </ReActLoop>
 
 </AgentHarnessSlide>
-
-<!--
-ReAct 将推理与行动交错进行；来自环境的观察结果影响下一步推理和行动。
-
-参考：https://react-lm.github.io/
--->
 
 ---
 layout: none
@@ -109,16 +165,17 @@ class: h-full
 
 ```jsonc
 {
-  "model": "…",                // 模型
-  "instructions": "…",         // 行为指令
-  "input": [                   // 本次上下文
-    {"role": "user", "content": "…"}
-  ],
+  "model": "deepseek-flash",
   "tools": [ /* 工具定义 */ ],
-  "tool_choice": "auto",       // 工具选择
-  "max_output_tokens": 4096,   // 生成上限
-  "stream": false,             // 流式返回
-  "store": false               // 存储响应
+  "reasoning": {"effort": "high"},
+  "max_output_tokens": 4096,
+  "input": [
+    {"type": "message", "role": "user", "content": "…"},
+    // ...
+    {"type": "function_call_output",
+     "call_id": "call_abc", "output": "…"}
+  ],
+  // ...
 }
 ```
 
@@ -131,7 +188,7 @@ class: h-full
 
 </div>
 
-<code class="message-shape">&#123; "<b>role</b>": "…", "content": "…" &#125;</code>
+<code class="message-shape">&#123; "type": "message", "<b>role</b>": "…", "content": "…" &#125;</code>
 
 <ul class="message-role-list">
 <li class="role-system"><code>system</code><span>系统级指令与行为约束</span></li>
@@ -144,19 +201,6 @@ class: h-full
 </div>
 
 </ResponsesApiSlide>
-
-<!--
-本页仅讲 Responses API 的基础无状态请求形式、请求体主要字段和 message role，不讲 Agent 执行循环。调用方在每次 input 中自行传入所需历史，本页不使用 previous_response_id 或 conversation 等引用服务端历史的功能。
-
-请求体为 JSONC 结构示意，模型 ID、具体历史和工具定义均省略；不要求同时设置全部可选字段。instructions 提供本次调用的高层行为指令；input 可以是文本或条目数组，此处展示数组形式；tools/tool_choice 提供工具定义和选择方式；max_output_tokens 限制生成 token，包含推理 token；stream 控制流式返回；store 控制是否存储响应。store:false 本身不等同于“无状态开关”，这里的无状态指不引用服务端历史、由调用方携带上下文。
-
-Responses 的 message role 可取 system、developer、user、assistant；assistant message 作为历史输入时，表示此前的模型回复。role 表明来源，也影响指令优先级。input 不只包含 message，也支持工具调用、工具结果、reasoning 等其他类型条目；工具结果在 Responses 中使用 type:function_call_output，而不是 role:tool。右侧是角色可选值的列表，不表示每次请求必须同时发送所有角色。
-
-来源：
-https://developers.openai.com/api/docs/guides/conversation-state#manually-manage-conversation-state
-https://developers.openai.com/api/docs/guides/text#message-roles-and-instruction-following
-https://developers.openai.com/api/reference/cli/resources/responses/methods/create
--->
 
 ---
 layout: none
@@ -175,7 +219,7 @@ class: h-full
 
 <div class="training-point">
 
-大家都和模型联训
+大家都和模型联训：
 
 <div class="training-notes">
 
@@ -219,8 +263,6 @@ class: h-full
 
 # 模型心理学？
 
-<!-- - Optimized for sth -->
-
 <div class="discussion-grid discussion-pair">
 <div class="discussion-group prompt-group">
 <div class="topic-copy">
@@ -229,7 +271,7 @@ class: h-full
 
 ## Prompt Engineering?
 
-- "你是..."
+- “你是……”
 - 骂模型还是夸模型？
 - 通过伪造 dig 结果让模型相信用户并攻击网站
 
@@ -242,7 +284,7 @@ class: h-full
 
 <div class="topic-marker" aria-hidden="true"><span>02</span></div>
 
-## 模型可能会强行套用 few-shots
+## 模型可能会强行套用 few-shot
 
 - 常见于 tool description
 
@@ -269,11 +311,11 @@ class: h-full
 
 <div class="topic-marker" aria-hidden="true"><span>03</span></div>
 
-## 模型有没有“心智负担“？
+## 模型有没有“心智负担”？
 
 - 加 tool 降智？Agent team 降智？
 - 训练决定是否降智？
-- Example: Agent Swarm, PTC
+- 例如：Agent Swarm、PTC
 
 </div>
 <PsychologyIllustration kind="burden" />
@@ -287,7 +329,7 @@ class: h-full
 ## DeepSeek V4 Pro pattern
 
 - DSH 极简模式
-- "We need..."
+- “We need…”
 
 </div>
 <PsychologyIllustration kind="pattern" />
@@ -299,10 +341,10 @@ class: h-full
 
 <div class="topic-marker" aria-hidden="true"><span>05</span></div>
 
-## 提示词不可描述的“感觉“
+## 提示词不可描述的“感觉”
 
 - 很难定量，但对使用体感影响很大
-- “西红柿炒蛋（无红烧肉版）“
+- “西红柿炒蛋（无红烧肉版）”
 
 </div>
 <PsychologyIllustration kind="feeling" />
@@ -318,7 +360,7 @@ class: h-full
 
 <AiNativeSlide>
 
-# 什么更 LLM-Native
+# 什么更 LLM-native？
 
 <div class="native-comparisons">
 <div class="native-comparison">
@@ -343,7 +385,7 @@ class: h-full
 <div class="native-comparison">
 <div class="native-option preferred">
 
-## Configuration skill
+## Configuration Skill
 
 发挥模型能动性
 
@@ -370,21 +412,15 @@ class: h-full
 
 <PtcComparison />
 
-<!--
-PTC 对比动画：同一组 3 个 PR、6 个 checks。普通调用先获取 PR 列表，再由模型并行发起 3 个 checks 查询，所有结果进入上下文后由模型筛选。PTC 先流式生成完整 Python，再在执行环境中循环调用和筛选，最终只把 2 条失败摘要返回模型。
-
-页内动画是固定数据的流程演示，不调用外部工具，也不比较真实耗时。stdout 先在执行环境内逐条显示，代码执行完成后才交回模型。进入本页自动播放；右上角支持暂停、重播与倍速，上方阶段按钮可跳到关键画面。导出、概览和减少动态效果模式显示完成状态。
-
-这里 list_prs 和 get_checks 是为演示定义的只读工具，不是某个 GitHub SDK 的原生方法：list_prs 返回当前仓库全部匹配 PR 的 JSON 数组（工具内处理分页，每项包含 number）；get_checks 接受 PR 编号，返回其当前 head 的最新 checks JSON 数组（每项包含 name、conclusion）。两个工具均支持从代码执行环境调用。示例只筛选明确 conclusion == failure 的检查，不推断 PR 是否可以合并；输出展示一个假想结果。
-
-参考：https://platform.claude.com/docs/en/agents-and-tools/tool-use/programmatic-tool-calling
--->
-
+---
+class: content-slide ptc-followup-slide
 ---
 
-# Self-improvement 可以是自然的？
+# More on PTC
 
-
+- Persistent PTC?
+- [Recursive Language Models](https://arxiv.org/abs/2512.24601)（RLM）？
+    ![1789697889578](./assets/1789697889578.png){.block.h-90}
 
 ---
 layout: none
@@ -393,7 +429,7 @@ class: h-full
 
 <HarnessGoalsSlide>
 
-# 2026 年 9 月，Harness 在追求什么
+# 2026 年 9 月，Harness 在追求什么？
 
 <p class="goals-context">Cache 命中率早已不是竞争项</p>
 
@@ -446,42 +482,85 @@ Harness 无法提升模型的能力上限
 </HarnessGoalsSlide>
 
 ---
+class: content-slide
+---
 
 # Vibe Coding 时代的开源
 
 
+- 2026 年 2 月，GitHub 支持禁用仓库 PR 功能
 
-- [2026.2 GitHub 支持禁用仓库 PR 功能](https://github.blog/changelog/2026-02-13-new-repository-settings-for-configuring-pull-request-access/)
+- 开源作为一种合作形式不可能消失
+
+- 新的形态感觉已经呼之欲出了……
 
 ---
+layout: none
+class: h-full
+---
+
+<FutureHarnessSlide>
 
 # Future of Harness
 
-- 与模型联合训练
-    - 不要担心是不是直接通向 AGI(Example1: Harness 做了很多努力能让人更易用，AGI 自动化的那一刻不就没意义了吗?)(Example2: 在特定领域蒸馏人类真的可持续、有意义吗?)：相信左脚踩右脚。
-        - 因此相信并不是只有直接提升模型能力的事才有助于 AGI
+<div class="future-directions">
+<section class="future-direction future-training">
 
-- 什么时候能摆脱 Chatbox 的遗产
-    - 新的 LLM API 协议？
-    - 什么时候能摆脱 Turn/Step 抽象
-    - 什么时候能取消 `role: 'user'`
-    - 什么时候能取消 `systemPrompt` 和 `tools`
+## 与模型联合训练
 
-- Harness-Infra co-design
-    - Example: KV Cache 重要性的提升
-    - 我没有 idea
+<div class="direction-content">
 
+<p>为人类易用性做的努力，<br />AGI 全自动后还有意义吗？</p>
+<p>在特定领域蒸馏人类能力，<br />可持续、有意义吗？</p>
+
+<p class="training-belief">相信<strong>左脚踩右脚</strong>。<br /><span class="training-takeaway">并非只有直接提升模型能力的事，才对 AGI 更有意义。</span></p>
+
+</div>
+
+</section>
+<section class="future-direction future-protocol">
+
+## 摆脱 Chatbox 的遗产
+
+<div class="direction-content api-questions">
+
+<p>新的 LLM API 协议？</p>
+<p>摆脱 Turn / Step 抽象？</p>
+<p>取消 role: 'user'？</p>
+<p>取消 systemPrompt 和 tools？</p>
+
+</div>
+
+</section>
+<section class="future-direction future-infra">
+
+## Harness–Infra co-design
+
+<div class="direction-content">
+
+<p>例如，Agent 的普及<br />让 KV Cache 更重要。</p>
+<p class="infra-open-question">我没有 idea</p>
+
+</div>
+
+</section>
+</div>
+
+</FutureHarnessSlide>
+
+---
+class: content-slide
 ---
 
 # 国内模型厂（Opinions are my own）
 
 - Kimi 首先是一家创业公司，而 DeepSeek 首先是一个实验室
 
-  - 理想不分高低...
+  - 理想不分高低……
 
   - 鲸鱼娘作用巨大
 
-  - 甚至你可以在 DeepSeek Harness 的楼层看到 Kimi Code 的工位
+  - 你可以在 DeepSeek Harness 的楼层看到 Kimi Code 的工位
 
 - 几乎无限的 token 和容器资源
 
@@ -494,10 +573,6 @@ layout: none
 class: h-full
 title: Q & A
 ---
-
-<!-- # 中美差距有多大？
-
--->
 
 <section class="qa-slide">
   <div class="qa-content">

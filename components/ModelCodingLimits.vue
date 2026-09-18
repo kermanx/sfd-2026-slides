@@ -6,7 +6,7 @@ const arrowId = `review-arrow-${useId()}`
 </script>
 
 <template>
-  <section class="model-limits" aria-labelledby="model-limits-title">
+  <section class="model-limits content-slide" aria-labelledby="model-limits-title">
     <h1 id="model-limits-title">模型 Coding 能力已达上界？</h1>
     <p class="limits-premise">某种意义上确实是这样？</p>
 
@@ -58,7 +58,7 @@ const arrowId = `review-arrow-${useId()}`
     </div>
 
     <section class="system-design-question" aria-labelledby="system-design-heading">
-      <h2 id="system-design-heading">系统设计的能力真的不可代替吗？</h2>
+      <h2 id="system-design-heading">系统设计的能力真的不可替代吗？</h2>
       <img :src="systemDesignComment" alt="系统设计能力讨论截图" />
     </section>
   </section>
@@ -75,21 +75,12 @@ const arrowId = `review-arrow-${useId()}`
   --limits-tint: #eef3f6;
   width: 100%;
   height: 100%;
-  padding: 34px 44px 32px;
+  padding-bottom: 32px;
   color: var(--limits-text);
   background: var(--limits-paper);
   font-family: 'Inter', 'Avenir Next', 'PingFang SC', 'Microsoft YaHei', sans-serif;
 }
 
-.model-limits h1 {
-  margin: 0;
-  color: #526f7a;
-  font-family: 'PT Serif', 'Songti SC', Georgia, serif;
-  font-size: 32px;
-  font-weight: 500;
-  line-height: 1.3;
-  letter-spacing: -0.5px;
-}
 
 .limits-premise {
   margin: 17px 0 0;
@@ -139,5 +130,4 @@ const arrowId = `review-arrow-${useId()}`
   --limits-rule: #35424c;
   --limits-tint: #222f35;
 }
-:global(.dark) .model-limits h1 { color: #abc7ce; }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <section class="slidev-layout discussion-slide">
+  <section class="slidev-layout discussion-slide content-slide">
     <slot />
   </section>
 </template>
@@ -12,21 +12,12 @@
   --discussion-rule: #dde3e3;
   width: 100%;
   height: 100%;
-  padding: 34px 44px 36px;
+  padding-bottom: 36px;
   background: var(--discussion-paper);
   color: var(--discussion-text);
   font-family: 'Inter', 'Avenir Next', 'PingFang SC', 'Microsoft YaHei', sans-serif;
 }
 
-.discussion-slide :deep(h1) {
-  margin: 0;
-  color: #526f7a;
-  font-family: 'PT Serif', 'Songti SC', Georgia, serif;
-  font-size: 32px;
-  font-weight: 500;
-  line-height: 1.3;
-  letter-spacing: -0.5px;
-}
 
 .discussion-slide :deep(.discussion-grid) {
   display: grid;
@@ -147,7 +138,4 @@
 :global(.dark) .discussion-slide :deep(.pattern-group) { --topic-color: #a3b6c5; --topic-tint: #2a3741; }
 :global(.dark) .discussion-slide :deep(.feeling-group) { --topic-color: #c6a371; --topic-tint: #3b3224; }
 
-:global(.dark) .discussion-slide :deep(h1) {
-  color: #abc7ce;
-}
 </style>

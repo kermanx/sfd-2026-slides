@@ -1,5 +1,5 @@
 <template>
-  <section class="slidev-layout ai-native-slide">
+  <section class="slidev-layout ai-native-slide content-slide">
     <slot />
   </section>
 </template>
@@ -16,27 +16,18 @@
   --native-code: #f3f6f5;
   width: 100%;
   height: 100%;
-  padding: 34px 44px 36px;
+  padding-bottom: 36px;
   background: var(--native-paper);
   color: var(--native-text);
   font-family: 'Inter', 'Avenir Next', 'PingFang SC', 'Microsoft YaHei', sans-serif;
 }
 
-.ai-native-slide :deep(h1) {
-  margin: 0;
-  color: #526f7a;
-  font-family: 'PT Serif', 'Songti SC', Georgia, serif;
-  font-size: 32px;
-  font-weight: 500;
-  line-height: 1.3;
-  letter-spacing: -0.5px;
-}
 
 .ai-native-slide :deep(.native-comparisons) {
   display: grid;
   grid-template-columns: 1fr;
   gap: 18px;
-  margin-top: 23px;
+  margin-top: 12px;
 }
 
 .ai-native-slide :deep(.native-comparison) {
@@ -106,5 +97,4 @@
   --native-code: #202c30;
 }
 
-:global(.dark) .ai-native-slide :deep(h1) { color: #abc7ce; }
 </style>

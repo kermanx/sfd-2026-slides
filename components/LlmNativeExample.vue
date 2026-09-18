@@ -10,7 +10,6 @@ defineProps<{ kind: 'skill' | 'mcp' | 'configuration-skill' | 'configuration-ui'
           <svg viewBox="0 0 16 18" fill="none" aria-hidden="true"><path d="M3 1H10L14 5V17H3ZM10 1V5H14M6 9H11M6 12H10" /></svg>
           SKILL.md
         </span>
-        <span class="example-caption">代码格式化 · 示例</span>
       </div>
       <div class="skill-instructions">
         <div>沿用仓库已有的 <em>formatter</em>。</div>
@@ -22,7 +21,6 @@ defineProps<{ kind: 'skill' | 'mcp' | 'configuration-skill' | 'configuration-ui'
     <template v-else-if="kind === 'mcp'">
       <div class="example-heading">
         <span class="example-filename"><span class="json-symbol">{ }</span> format_files</span>
-        <span class="example-caption">JSON 参数 · 示例</span>
       </div>
       <div class="mcp-arguments" aria-label="JSON 参数：paths 为 src/app.ts，write 为 true">
         <div class="json-punctuation">{</div>
@@ -47,7 +45,7 @@ defineProps<{ kind: 'skill' | 'mcp' | 'configuration-skill' | 'configuration-ui'
     </template>
 
     <template v-else>
-      <div class="example-heading"><span>编辑器设置</span><span class="example-caption">工作区 · 示例</span></div>
+      <div class="example-heading"><span>编辑器设置</span></div>
       <div class="configuration-form">
         <div class="setting-row"><span>默认格式化工具</span><span class="setting-select">Prettier<svg viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" /></svg></span></div>
         <div class="setting-row"><span>保存时格式化</span><span class="setting-toggle"><span /></span></div>

@@ -13,7 +13,7 @@ defineProps<{ kind: 'prompt' | 'example' | 'burden' | 'pattern' | 'feeling' }>()
     <!-- A spoken instruction, with one clear silhouette. -->
     <g v-if="kind === 'prompt'">
       <path d="M54 19H186A16 16 0 0 1 202 35V73A16 16 0 0 1 186 89H94L71 106V89H54A16 16 0 0 1 38 73V35A16 16 0 0 1 54 19Z" class="psych-tint" />
-      <text x="120" y="64" text-anchor="middle" class="psych-instruction">你是…</text>
+      <text x="120" y="64" text-anchor="middle" class="psych-instruction">你是……</text>
     </g>
 
     <!-- A round shape pushed against a square template. -->

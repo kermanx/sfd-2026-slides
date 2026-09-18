@@ -1,5 +1,5 @@
 <template>
-  <section class="slidev-layout responses-api-slide">
+  <section class="slidev-layout responses-api-slide content-slide">
     <slot />
   </section>
 </template>
@@ -16,17 +16,16 @@
   --responses-system: #ae8041;
   width: 100%;
   height: 100%;
-  padding: 34px 44px 36px;
+  padding-bottom: 36px;
   background: var(--responses-paper);
   color: var(--responses-text);
   font-family: 'Inter', 'Avenir Next', 'PingFang SC', 'Microsoft YaHei', sans-serif;
 }
 .responses-api-slide :deep(.responses-title) { display: flex; justify-content: space-between; align-items: center; }
 .responses-api-slide :deep(.responses-title > p) { margin: 0; opacity: 1; line-height: 1.4; }
-.responses-api-slide :deep(h1) { margin: 0; color: #526f7a; font-family: 'PT Serif', 'Songti SC', Georgia, serif; font-size: 32px; font-weight: 500; line-height: 1.3; letter-spacing: -0.5px; }
 .responses-api-slide :deep(.responses-endpoint) { padding: 0; background: transparent; color: var(--responses-input); font-family: 'SFMono-Regular', Consolas, monospace; font-size: 13px; opacity: 1; }
 .responses-api-slide :deep(.responses-stateless) { margin: 23px 0 21px; }
-.responses-api-slide :deep(.responses-details) { display: grid; grid-template-columns: 432px minmax(0, 1fr); gap: 32px; padding-top: 19px; border-top: 1px solid var(--responses-rule); }
+.responses-api-slide :deep(.responses-details) { display: grid; grid-template-columns: 432px minmax(0, 1fr); gap: 32px; }
 .responses-api-slide :deep(.request-structure), .responses-api-slide :deep(.message-roles) { min-width: 0; }
 .responses-api-slide :deep(.detail-heading) { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-bottom: 13px; }
 .responses-api-slide :deep(.detail-heading h2) { margin: 0; font-size: 20px; font-weight: 600; line-height: 1.4; }
@@ -49,5 +48,4 @@
 .responses-api-slide :deep(.role-note) { margin: 12px 0 0; color: var(--responses-muted); font-size: 12px; line-height: 1.6; }
 .responses-api-slide :deep(.role-note code) { padding: 0; background: transparent; color: var(--responses-muted); font-family: 'SFMono-Regular', Consolas, monospace; font-size: 11px; }
 :global(.dark) .responses-api-slide { --responses-paper: #161e24; --responses-text: #e0e8ed; --responses-muted: #a6b6bf; --responses-rule: #35424c; --responses-input: #8dadd2; --responses-model: #b4a1d1; --responses-output: #83b6a9; --responses-system: #c6a371; }
-:global(.dark) .responses-api-slide :deep(h1) { color: #abc7ce; }
 </style>

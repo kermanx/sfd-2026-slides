@@ -1,5 +1,5 @@
 <template>
-  <section class="harness-approaches" aria-label="Kimi Code 与 DSH">
+  <section class="harness-approaches content-slide" aria-label="Kimi Code 与 DSH">
     <article class="approach kimi-approach">
       <header class="approach-heading">
         <span class="heading-mark" aria-hidden="true" />
@@ -143,7 +143,7 @@
   gap: 60px;
   width: 100%;
   height: 100%;
-  padding: 36px 44px 38px;
+  padding-bottom: 38px;
   background: var(--approaches-paper);
   color: var(--approaches-text);
   font-family: 'Inter', 'Avenir Next', 'PingFang SC', 'Microsoft YaHei', sans-serif;
@@ -174,27 +174,20 @@
 }
 
 .approach-heading {
+  position: relative;
   display: flex;
   align-items: center;
-  gap: 13px;
 }
 
 .heading-mark {
+  position: absolute;
+  left: -16px;
   width: 5px;
   height: 28px;
   border-radius: 2px;
   background: var(--approach-accent);
 }
 
-.approach-heading h1 {
-  margin: 0;
-  color: #526f7a;
-  font-family: 'PT Serif', Georgia, serif;
-  font-size: 34px;
-  font-weight: 500;
-  line-height: 1.3;
-  letter-spacing: -0.6px;
-}
 
 .approach blockquote {
   margin: 23px 0 0;
@@ -321,5 +314,4 @@
   --approach-tint: #20332f;
 }
 
-:global(.dark) .approach-heading h1 { color: #abc7ce; }
 </style>

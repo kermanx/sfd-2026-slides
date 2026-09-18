@@ -1,5 +1,5 @@
 <template>
-  <section class="slidev-layout harness-goals-slide">
+  <section class="slidev-layout harness-goals-slide content-slide">
     <slot />
   </section>
 </template>
@@ -15,21 +15,12 @@
   flex-direction: column;
   width: 100%;
   height: 100%;
-  padding: 34px 44px 42px;
+  padding-bottom: 42px;
   color: var(--goals-text);
   background: var(--goals-paper);
   font-family: 'Inter', 'Avenir Next', 'PingFang SC', 'Microsoft YaHei', sans-serif;
 }
 
-.harness-goals-slide :deep(h1) {
-  margin: 0;
-  color: var(--goals-heading);
-  font-family: 'PT Serif', 'Songti SC', Georgia, serif;
-  font-size: 32px;
-  font-weight: 500;
-  line-height: 1.3;
-  letter-spacing: -0.5px;
-}
 
 .harness-goals-slide :deep(.goals-context) {
   margin: 12px 0 0;

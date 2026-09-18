@@ -1,5 +1,5 @@
 <template>
-  <div class="react-loop" role="img" aria-label="ReACT Loop：思考，行动，观察；观察结果回到下一轮思考。">
+  <div class="react-loop" role="img" aria-label="ReAct Loop：思考，行动，观察；观察结果回到下一轮思考。">
     <svg class="react-paths" viewBox="0 0 892 302" fill="none" aria-hidden="true">
       <path class="forward-path" d="M232 97H378M371 91L378 97L371 103M514 97H660M653 91L660 97L653 103" />
       <path class="feedback-path" d="M728 161V249Q728 265 712 265H180Q164 265 164 249V161M158 168L164 161L170 168" />
