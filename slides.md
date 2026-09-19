@@ -579,7 +579,7 @@ class: h-full
 </section>
 </div>
 
-<p class="future-addendum">当然，Memory，Proactive Agent，Continual learning</p>
+<p class="future-addendum">当然，Memory，Proactive Agent，Continual Learning</p>
 
 </FutureHarnessSlide>
 
