@@ -261,6 +261,28 @@ layout: none
 class: h-full
 ---
 
+<OpenSourceSlide>
+
+# Vibe Coding 时代的开源
+
+<div class="open-source-copy">
+<div class="open-source-group">
+<p>当实现一个不可维护的代码的成本极低</p>
+<p class="open-source-example">2026 年 2 月，GitHub 支持禁用仓库 PR 功能</p>
+</div>
+<div class="open-source-group">
+<p>开源作为一种<strong>合作方式</strong>不可能消失</p>
+<p>新的形态感觉已经呼之欲出了……</p>
+</div>
+</div>
+
+</OpenSourceSlide>
+
+---
+layout: none
+class: h-full
+---
+
 <DiscussionSlide>
 
 # 模型心理学？
@@ -504,28 +526,6 @@ Harness 无法提升模型的能力上限
 </div>
 
 </HarnessGoalsSlide>
-
----
-layout: none
-class: h-full
----
-
-<OpenSourceSlide>
-
-# Vibe Coding 时代的开源
-
-<div class="open-source-copy">
-<div class="open-source-group">
-<p>当实现一个不可维护的代码的成本极低</p>
-<p class="open-source-example">2026 年 2 月，GitHub 支持禁用仓库 PR 功能</p>
-</div>
-<div class="open-source-group">
-<p>开源作为一种<strong>合作方式</strong>不可能消失</p>
-<p>新的形态感觉已经呼之欲出了……</p>
-</div>
-</div>
-
-</OpenSourceSlide>
 
 ---
 layout: none
